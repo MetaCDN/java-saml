@@ -116,15 +116,19 @@
 
 	<distributionManagement>
 		<repository>
-			<id>sonatype-nexus-staging</id>
-			<name>Nexus Release Repository</name>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+			<id>deployment</id>
+			<name>Internal Releases</name>
+			<url>http://stubby.metacdn.com:8081/nexus/content/repositories/releases/</url>
 		</repository>
 		<snapshotRepository>
-			<id>sonatype-nexus-snapshots</id>
-			<name>Sonatype Nexus Snapshots</name>
-			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+			<id>deployment</id>
+			<name>Internal Releases</name>
+			<url>http://stubby.metacdn.com:8081/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
+		<site>
+			<id>metacdn-website</id>
+			<url>scp://stubby.metacdn.com:6666/var/www/docs/metacdn-java.saml</url>
+		</site>
 	</distributionManagement>
 
 	<scm>

@@ -2,6 +2,9 @@ package com.onelogin.saml2.settings;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.FileNotFoundException;
+import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -145,6 +148,54 @@ public class SettingsBuilder {
 				}
 			} catch (IOException e) {
 				LOGGER.warn("properties file '"  + propFileName +  "' not closed properly.");
+			}
+		}
+	}
+
+	/**
+	 * Load settings from the url
+	 *
+	 * @param url
+	 *            the url of the settings
+	 *
+	 * @return the SettingsBuilder object with the settings loaded from the file
+	 *
+	 * @throws IOException
+	 * @throws Error
+	 */
+	public SettingsBuilder fromURL(URL url) throws IOException, Error {
+		this.loadPropUrl(url);
+		return this;
+	}
+
+	/**
+	 * Loads the settings from the url
+	 *
+	 * @param url
+	 *            the url of the settings
+	 *
+	 * @throws IOException
+	 * @throws Error
+	 */
+	private void loadPropUrl(URL url) throws IOException, Error {
+		InputStream inputStream = null;
+
+		try {
+			inputStream = url.openStream();
+			Reader reader = new InputStreamReader(inputStream, "UTF-8");
+			if (inputStream != null) {
+				prop.load(reader);
+				LOGGER.debug("properties url " + url + "loaded succesfully");
+			} else {
+				throw new FileNotFoundException("properties url '" + url + "' not found in the classpath");
+			}
+		} finally {
+			try {
+				if (inputStream != null) {
+					inputStream.close();
+				}
+			} catch (IOException e) {
+				LOGGER.warn("properties file not closed properly.", e);
 			}
 		}
 	}

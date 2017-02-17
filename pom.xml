@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.onelogin</groupId>
+	<groupId>com.metacdn</groupId>
 	<artifactId>java-saml-toolkit</artifactId>
 	<version>2.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>OneLogin java-saml Toolkit Project</name>
 	<description>A Java SAML toolkit by OneLogin</description>
-	<url>https://github.com/onelogin/java-saml</url>
+	<url>https://github.com/metacdn/java-saml</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

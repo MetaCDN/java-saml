@@ -1,6 +1,7 @@
 package com.onelogin.saml2;
 
 import java.io.IOException;
+import java.net.URL;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
@@ -219,6 +220,36 @@ public class Auth {
 			throw new SettingsException(errorMsg, SettingsException.SETTINGS_INVALID);
 		}
 		LOGGER.debug("Settings validated");
+	}
+
+	/**
+	 * Initializes the SP SAML instance.
+	 *
+	 * @param url
+	 *				remote url with the settings
+	 *
+	 * @throws IOException
+	 * @throws SettingsException
+	 * @throws Error
+	 */
+	public Auth(URL url) throws IOException, SettingsException, Error {
+		this(new SettingsBuilder().fromURL(url).build(), null, null);
+	}
+
+	/**
+	 * Initializes the SP SAML instance.
+	 *
+	 * @param url
+	 *				remote url with the settings
+	 * @param request
+	 * 				HttpServletRequest object to be processed
+	 * @param response
+	 * 				HttpServletResponse object to be used
+	 *
+	 * @throws SettingsException
+	 */
+	public Auth(URL url, HttpServletRequest request, HttpServletResponse response) throws IOException, SettingsException, Error {
+		this(new SettingsBuilder().fromURL(url).build(), request, response);
 	}
 
 	/**

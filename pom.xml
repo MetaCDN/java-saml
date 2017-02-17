@@ -128,9 +128,9 @@
 	</distributionManagement>
 
 	<scm>
-		<connection>scm:git:git@github.com:onelogin/java-saml.git</connection>
-		<developerConnection>scm:git:git@github.com:onelogin/java-saml.git</developerConnection>
-		<url>https://github.com/onelogin/java-saml</url>
+		<connection>scm:git:git@github.com:metacdn/java-saml.git</connection>
+		<developerConnection>scm:git:git@github.com:metacdn/java-saml.git</developerConnection>
+		<url>https://github.com/metacdn/java-saml</url>
 		<tag>HEAD</tag>
 	</scm>
 
@@ -143,6 +143,11 @@
 	</licenses>
 
 	<developers>
+		<developer>
+			<name>Yudong Li</name>
+			<url>https://github.com/featheast</url>
+			<organization>MetaCDN</organization>
+		</developer>
 		<developer>
 			<name>Sixto Martín García</name>
 			<url>https://github.com/pitbulk</url>
